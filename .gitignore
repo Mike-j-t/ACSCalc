@@ -79,6 +79,7 @@ $RECYCLE.BIN/
 *.lnk
 *.cbp
 *.depend
+*.layout
 doxygen/doxyfile
 *.tmp
 *.css
