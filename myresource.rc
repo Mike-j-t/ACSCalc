@@ -1,0 +1,58 @@
+#include <windows.h>
+#include "myresource.h"
+#ifndef IDC_STATIC
+#define IDC_STATIC (-1)
+#endif
+#ifndef IDC_PRESS
+#define IDC_PRESS (9005)
+#endif
+#ifndef IDC_OTHER
+#define IDC_OTHER (9006)
+#endif
+
+IDR_MYMENU MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit", ID_FILE_EXIT
+    END
+
+    POPUP "&Stuff"
+    BEGIN
+        MENUITEM "&Go", ID_STUFF_GO
+        MENUITEM "G&o somewhere else", 0, GRAYED
+    END
+    POPUP "&Dialog"
+    BEGIN
+        MENUITEM "&Show", ID_DIALOG_SHOW
+        MENUITEM "&Hide", ID_DIALOG_HIDE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "A&bout", ID_HELP_ABOUT
+        MENUITEM "&Help", ID_HELP_HELP
+    END
+END
+
+//IDI_MYICON ICON "myicon.ico"
+
+IDD_ABOUT DIALOG DISCARDABLE 0,0,239,66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Advanced CS Calculator"
+BEGIN
+    DEFPUSHBUTTON "&Ok",IDOK,174,18,50,14
+    PUSHBUTTON "&Cancel",IDCANCEL,174,35,50,14
+    GROUPBOX "About the Advanced Child Support Calculator",IDC_STATIC,7,7,225,52
+    CTEXT  "The Advanced Child Support Calculator\r\n\r\n - By Mike",IDC_STATIC,16,18,144,33
+END
+
+IDD_TOOLBAR DIALOGEX 0,0,98,52
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "My Dialog Toolbar"
+BEGIN
+    PUSHBUTTON "&Press This Button",IDC_PRESS,7,7,84,14
+    PUSHBUTTON "&Or This One",IDC_OTHER,7,31,84,14
+END
+
+

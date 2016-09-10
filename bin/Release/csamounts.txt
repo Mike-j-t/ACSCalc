@@ -1,0 +1,18 @@
+# This file contains annual figures
+# 5 figures are required for each year and are comma seperated
+# 1) The year to which the figures are relevant
+# 2) The annualised MTAWE (Male Total Average Weekly Earnings)
+# 3) The annual Parenting Payment Single (used to determine fixed assessment)
+# 4) The fixed assessment annual rate
+# 5) The Child Support Minimum Annual Rate
+2006,50648,13040,1040,320
+2007,52073,13315,1102,330
+2008,54756,13980,1122,339
+2009,56425,13980,1178,356
+2010,58854,14615,1193,360
+2011,61781,15909,1226,370
+2012,64865,16679,1269,383
+2013,67137,17256,1294,391
+2014,70569,18197,1322,399
+2015,70829,18728,1352,408
+2016,71256,19011,1373,414
