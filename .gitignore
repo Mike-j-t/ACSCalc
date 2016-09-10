@@ -83,3 +83,4 @@ $RECYCLE.BIN/
 doxygen/doxyfile
 *.tmp
 *.css
+*.res
