@@ -33,6 +33,7 @@ bool FNC_PROMOTEADULTSINTOFULLCASES = false;
 bool FNC_MERGECHILDCASESINTOFULLCASES = false;
 bool FNC_BUILDCHILDCASES = false;
 bool FNC_BUILDRELATIONSHIPS = false;
+bool FNC_DUMMY_TO_TEST_GIT = false;
 
 // Custom/Program specific Headers
 #include "csa.h"
