@@ -196,7 +196,7 @@ char const* ati_long(
                      "\n\nThe CS Guide section 2.4.4.10 Adjusted Taxable"
                      " Income may provide greater detail."
                      "\nThe guide may be found at :-"
-                     "\thttp://guides.dss.gov.au/child-support-guide/2/4/4/10"
+                     "\n\thttp://guides.dss.gov.au/child-support-guide/2/4/4/10"
                      "\nNote! this address can change."
                      );
 char const* ati_tt(
@@ -245,6 +245,16 @@ char const* ssa_long(
                      " Cost of Children Tables."
 
                      "\n\nNote if ATI - SSA is negative then it is changed to 0."
+
+                     "\n\nMore information regarding SSA can be obtained from"
+                     " the CS Guide section 2.4.4.20 Other Components of"
+                     " Child Support Income."
+
+                     "\n\nThe CS Guide may be found at :-"
+
+                     "\n\thttp://guides.dss.gov.au/child-support-guide/2/4/4/20"
+
+                     "\nNote! this address can change."
                      );
 char const* ssa_tt(
                    "SSA = Self Support Amount."
@@ -273,6 +283,31 @@ char const* ssa_tt(
                    );
 //=============================================================================
 //Less SSA (ATI-SSA)
+char const* less_ssa_short(
+                           "Less SSA = The amount after deducting the SSA from"
+                           " the ATI."
+
+                           "\n\nATI = Adjusted Taxable Income."
+                           " SSA = Self Support Amount."
+                           );
+char const* less_ssa_long(
+                          "Less SSA = The amount after deducting the SSA from"
+                          " the ATI."
+
+                          "\n\nATI = Adjusted Taxable Income."
+                          " SSA = Self Support Amount."
+
+                          "\n\nThis calculation reduces the amount that will"
+                          " be used for calculation purposes in order to"
+                          " set aside an amount deemed as being needed for"
+                          " an adult to support themself."
+
+                          "\n\nThis reduction is applied to all liable"
+                          " parents."
+
+                          "\n\nIf the result is negative then it is made"
+                          " to be $0."
+                          );
 char const* less_ssa_tt(
                          "Less SSA = The amount after deducting the SSA from"
                          " the ATI."
@@ -294,21 +329,37 @@ char const* rdca_short(
                        " Dependant Children."
                        );
 char const* rdca_long(
-                      "RDCA - Relevant Dependant Children Amount."
+                      "RDCA = Relevant Dependant Children Amount."
+
                       "\n\nAn amount that considers the financial support "
                       " needs of Relevant Dependant Children (RDC)."
+
                       "\n\nAn RDC is a child (biological or adopted) of"
                       " only one of parent's who is not a child of any "
                       " of Child Support case."
+
                       "\n\nThe RDCA is determined by applying the respective"
                       " parent's ATI less SSA to the Cost of Children tables."
+
                       "\n\nThe RDCA is then deducted from the respective"
                       " parent's ATI less SSA (along with the Multi-Case"
                       " Allowance (MCA)) to form that parent's Child Support"
                       " Income (CSI)."
+
                       "\n\nRDCA can often be $0."
-                      "\nIt could be that there are no RDC's. It could be"
-                      " that the "
+                      " It could be that there are no RDC's. It could be"
+                      " that the respective parent's ATI less the SSA is $0."
+
+                      "\n\nAdditional information may be obtained from the"
+                      " CS Guide section 2.4.4.20 Other Components of"
+                      " Child Support Income."
+
+                      "\n\nThe CS Guide may be found at :-"
+
+                     "\n\thttp://guides.dss.gov.au/child-support-guide/2/4/4/20"
+
+                     "\nNote! this address can change."
+
                       );
 char const* rdca_tt(
                      "RDCA = Relevant Dependant Children Amount."
@@ -332,6 +383,24 @@ char const* rdca_tt(
                      );
 //=============================================================================
 //LessRDCA tooltip text (Relevant Dependant Child Amount)
+char const* less_rdca_short(
+                            "Less RDCA = ATI - SSA - RDCA. (i.e. Less SSA - RDCA)"
+                            );
+char const* less_rdca_long(
+                           "Less RDCA = ATI - SSA - RDCA. (i.e. Less SSA - RDCA)"
+                           "\n\nRDCA = Relevant Dependant Children Amount."
+                           " ATI = Adjusted Taxable Income."
+                           " SSA = Self Support Amount."
+
+                           "This calculation factors in the legislated"
+                           " requirement that a parent supports all of thier"
+                           " children."
+
+                           "\n\nNote in conjunction with MCA/MCCap."
+
+                           "\n\nNote! a negative value, after deduction,"
+                           " is made to be $0."
+                           );
 char const* less_rdca_tt(
                     "Less RDCA = The amount after deducting the SSA "
                     "and the RDCA from the ATI."
@@ -344,6 +413,36 @@ char const* less_rdca_tt(
                     );
 //=============================================================================
 //Multi-Case Allowance tooltip
+char const* mca_short(
+                      "MCA = Multi-Case Allowance."
+
+                      "\n\nAn amount that considers the support paid for"
+                      " children in other cases."
+                      );
+char const* mca_long(
+                     "MCA = Multi-Case Allowance."
+
+                     "\n\nMCA is an allowance, deducted from a parent's"
+                     " income in order to consider the Child Support paid"
+                     " in other cases."
+
+                     "\n\nMCA is determined by ascertaining the cost of all"
+                     " CS children, from all cases, and then dividing the"
+                     " result by the number of Multi-Case children."
+
+                     "\n\nNote the above is a summary, the actual calculation"
+                     " is more complex."
+
+                     "\n\nAdditional information may be obtained from the"
+                     " CS Guide section 2.4.4.20 Other Components of"
+                     " Child Support Income."
+
+                     "\n\nThe CS Guide may be found at :-"
+
+                     "\n\thttp://guides.dss.gov.au/child-support-guide/2/4/4/20"
+
+                     "\nNote! this address can change."
+                     );
 char const* mca_tt(
                    "MCA = Multi-Case Allowance."
                    "\n\nMCA is an allowance, deducted from a parent's ATI,"
@@ -362,6 +461,32 @@ char const* mca_tt(
 //=============================================================================
 // Multi-Case Cap tooltip text
 // TODO (Mike092015#1#): Complete tooltip for MCCAP
+char const* mccap_short(
+                        "MCCAP = Multi-Case Cap."
+
+                        "\n\nThe Multi-Case Cap ensures that no parent pays"
+                        " more than if the children lived in the same household."
+                        );
+char const* mccap_long(
+                       "MCCAP = Multi-Case Cap."
+
+                       "\n\nThe Multi-Case Cap ensures that no parent pays"
+                       " more than if the children lived in the same household."
+
+                       "\n\nEither the MCA or the MCCap will be applied not both."
+                       " The one that is applied is the one that has the highest"
+                       " value (i.e. results in the lower amount.)"
+
+                       "\n\nAdditional information may be obtained from the"
+                       " CS Guide section 2.4.4.20 Other Components of"
+                       " Child Support Income."
+
+                       "\n\nThe CS Guide may be found at :-"
+
+                       "\n\thttp://guides.dss.gov.au/child-support-guide/2/4/9#mccap"
+
+                       "\nNote! this address can change."
+                        );
 
 char const* mccap_tt(
                      "MCCAP = Multi-Case Cap."
@@ -369,6 +494,27 @@ char const* mccap_tt(
                      );
 //=============================================================================
 // LessMCA tooltip text (Multi-Case Allowance)
+char const* less_mca_short(
+                           "LessMCA = The amount after deducting SSA, RDCA and"
+                           " MCA from the ATI. (i.e. Less RDCA - MCA)"
+
+                           "\n\nSSA = Self Support Amount. RDCA = Relevant"
+                           " Dependant Children Amount. MCA = Multi-Case Allowance."
+                           );
+
+char const* less_mca_long(
+                          "LessMCA = The amount after deducting SSA, RDCA and"
+                          " MCA from the ATI. (i.e. Less RDCA - MCA)"
+
+                          "\n\nSSA = Self Support Amount. RDCA = Relevant"
+                          " Dependant Children Amount. MCA = Multi-Case Allowance."
+
+                          "\n\nThis amount accounts for all legislated support"
+                          " requirements of a parent. The amount is subsequently"
+                          " termed Child Support Income (CSI)."
+
+                          "\n\nA negative value is changed to $0."
+                           );
 char const* less_mca_tt(
                         "LessMCA = The amount after deducting the SSA, the RDCA"
                         " and the MCA from the ATI."

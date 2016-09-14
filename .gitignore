@@ -86,3 +86,5 @@ doxygen/doxyfile
 *.res
 *.res
 *.res
+*.res
+obj/Debug/myresource.res
