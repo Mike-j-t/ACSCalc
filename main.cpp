@@ -129,7 +129,9 @@ std::deque<wc_adlts> wc_adults;      // deque of adult windows controls
 std::deque<wc_chldrn> wc_children;   // deque of child windows controls
 std::deque<HWND> results;           // deque of results windows control
 std::deque<result_line> xresults;
-std::deque<HWND> xresults_tt;       // Tootl tip HWND's
+std::deque<HWND> xresults_tt;       // Tooltip HWND's
+std::deque<HWND> xresults_hb;       // Help Button HWND's
+std::deque<char const*> xresults_hbtxt;
 
 // Window structure variables
 HDC hdc;
@@ -751,12 +753,21 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             if ((HWND)lParam == wc_calculate_button)
             {
                 DoCalculations(hwnd);      // Calculate
-                ReBuildAll(wc_children_addbutton, wc_children_label, wc_adults_addbutton, wc_adults_label, hwnd);
+                ReBuildAll(wc_children_addbutton,
+                           wc_children_label,
+                           wc_adults_addbutton,
+                           wc_adults_label,
+                           hwnd
+                           );
             }
             // Show Calculation details checkbox
             if ((HWND)lParam == wc_calculate_chkbox)
             {
-                LRESULT ac = SendMessage(wc_calculate_chkbox,BM_GETCHECK,(WPARAM)0,(LPARAM)0);
+                LRESULT ac = SendMessage(wc_calculate_chkbox,
+                                         BM_GETCHECK,
+                                         (WPARAM)0,
+                                         (LPARAM)0
+                                         );
                 if (ac == BST_CHECKED) calc_details = true;
                 else calc_details = false;
             }
@@ -764,7 +775,12 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             if ((HWND)lParam == wc_children_addbutton)
             {
                 AddNewChild();
-                ReBuildAll(wc_children_addbutton, wc_children_label, wc_adults_addbutton, wc_adults_label, hwnd);
+                ReBuildAll(wc_children_addbutton,
+                           wc_children_label,
+                           wc_adults_addbutton,
+                           wc_adults_label,
+                           hwnd
+                           );
                 si.nMax = ((vpos / 18)+22) -1;
                 si.fMask = SIF_ALL;
                 SetScrollInfo(hwnd, SB_VERT, &si, TRUE);
@@ -774,7 +790,12 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             if ((HWND)lParam == wc_adults_addbutton)
             {
                 AddNewAdult(children);
-                ReBuildAll(wc_children_addbutton, wc_children_label, wc_adults_addbutton, wc_adults_label, hwnd);
+                ReBuildAll(wc_children_addbutton,
+                           wc_children_label,
+                           wc_adults_addbutton,
+                           wc_adults_label,
+                           hwnd
+                           );
                 si.nMax = ((vpos / 18)+22) - 1;
                 si.fMask = SIF_ALL;
                 SetScrollInfo(hwnd, SB_VERT, &si, TRUE);
@@ -789,7 +810,12 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                     {
                         adults.erase(adults.begin()+i);
                         RemoveAdultFromChildren(i);
-                        ReBuildAll(wc_children_addbutton,wc_children_label, wc_adults_addbutton, wc_adults_label, hwnd);
+                        ReBuildAll(wc_children_addbutton,
+                                   wc_children_label,
+                                   wc_adults_addbutton,
+                                   wc_adults_label,
+                                   hwnd
+                                   );
                     }
                 }
                 // Delete a Child or detect age checked
@@ -799,14 +825,34 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                     if ((HWND)lParam == wc_children[i].wcc_chld_dltb)
                     {
                         children.erase(children.begin()+i);
-                        ReBuildAll(wc_children_addbutton,wc_children_label,wc_adults_addbutton, wc_adults_label, hwnd);
+                        ReBuildAll(wc_children_addbutton,
+                                   wc_children_label,
+                                   wc_adults_addbutton,
+                                   wc_adults_label,
+                                   hwnd
+                                   );
                     }
                     // Set age checked status
                     if ((HWND)lParam == wc_children[i].wcc_chld_age)
                     {
-                        LRESULT ac = SendMessage(wc_children[i].wcc_chld_age,BM_GETCHECK,(WPARAM)0,(LPARAM)0);
+                        LRESULT ac = SendMessage(wc_children[i].wcc_chld_age,
+                                                 BM_GETCHECK,
+                                                 (WPARAM)0,
+                                                 (LPARAM)0
+                                                 );
                         if (ac == BST_CHECKED) children[i].setteen(true);
                         else children[i].setteen(false);
+                    }
+                }
+                // Results section help buttons i.e. display a message box with
+                // the respective text as held in the associated (same index)
+                // xresults_hbtxt.
+                for (unsigned int i = 0; i < xresults_hb.size(); i++) {
+                    if ((HWND)lParam == xresults_hb[i]) {
+                        MessageBox(hwnd,xresults_hbtxt[i],
+                                   "Help Info",
+                                   MB_ICONINFORMATION
+                                   );
                     }
                 }
             }
@@ -1195,6 +1241,15 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
         KillWind(xresults_tt[i]);
     }
     xresults_tt.clear();
+    //=============================================================================
+    // Destroy Help Buttons
+    for (int i=0; i < (signed)xresults_hb.size(); i++) {
+        KillWind(xresults_hb[i]);
+    }
+    xresults_hb.clear();
+    //=============================================================================
+    // Destroy Help Button Text references
+    xresults_hbtxt.clear();
 
     //=============================================================================
     // Destroy any existing windows conrols
@@ -1805,8 +1860,12 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                            (LPTSTR)adult_tt);
                 //=============================================================
                 //ATI Label - Case detailed Information
+                // Prepare deques (mainly for HWND's)
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(ati_long);
+                // Add ATI Label
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "ATI",RESULTS_SUBSUBHEADING,
                               vp,hp,
@@ -1814,14 +1873,21 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_NOTAROW,
                               vpa);
+                // Add the ATI tooltip
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)ati_tt);
+                           (LPTSTR)ati_short);
+                // Add the ATI help button
+                AddItemButton(hwnd,xresults_hb[xresults_hb.size() -1],(std::string)"?",vp + 1,hp - 5,15);
+                // Change horizontal position to consider the help button
+                hp = hp + 15;
 
                 //=============================================================
                 //SSA Label - Case Detailed Information
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(ssa_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "SSA",
                               RESULTS_SUBSUBHEADING,
@@ -1832,8 +1898,9 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)ssa_tt);
-
+                           (LPTSTR)ssa_short);
+                AddItemButton(hwnd,xresults_hb[xresults_hb.size() -1],(std::string)"?",vp + 1,hp -5,15);
+                hp = hp + 15;
 
                 //=============================================================
                 //Less SSSA Label - Case Detailed Information
