@@ -18,6 +18,7 @@ extern char const* weekly_tt;
 extern char const* daily_tt;
 
 //Detailed Result (intermedaite values)
+// ATI - Adjusted Taxable Income
 extern char const* ati_tt;              // Adjusted taxable Income
 extern char const* ati_short;
 extern char const* ati_long;
