@@ -1899,13 +1899,21 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
                            (LPTSTR)ssa_short);
-                AddItemButton(hwnd,xresults_hb[xresults_hb.size() -1],(std::string)"?",vp + 1,hp -5,15);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp - 5,
+                              15
+                              );
                 hp = hp + 15;
 
                 //=============================================================
                 //Less SSSA Label - Case Detailed Information
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(less_ssa_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "Less SSA",
                               RESULTS_SUBSUBHEADING,
@@ -1916,12 +1924,22 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)less_ssa_tt);
+                           (LPTSTR)less_ssa_short);
+               AddItemButton(hwnd,
+                             xresults_hb[xresults_hb.size() -1],
+                             (std::string)"?",
+                             vp + 1,
+                             hp - 5,
+                             15
+                             );
+                hp = hp + 15;
 
                 //=============================================================
                 //RDCA Label - Case Detailed Information
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(rdca_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "RDCA",
                               RESULTS_SUBSUBHEADING,
@@ -1932,12 +1950,22 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)rdca_tt);
+                           (LPTSTR)rdca_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp - 5,
+                              15
+                              );
+                hp = hp + 15;
 
                 //=============================================================
                 //Less RDCA Label
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(less_rdca_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "Less RDCA",
                               RESULTS_SUBSUBHEADING,
@@ -1948,7 +1976,15 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)less_rdca_tt);
+                           (LPTSTR)less_rdca_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1 - vpa, //Note go back 1 line
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
 
 
                 //=============================================================
@@ -1977,6 +2013,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
 
                 //=============================================================
                 //SSA value - Case Detailed Information
@@ -1989,6 +2026,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
                 //=============================================================
                 //ATI Less SSA value - Case Detailed Information
                 xresults.push_back(result_line());
@@ -2000,6 +2038,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
                 //=============================================================
                 //RDCA value - Case Detailed Information
                 xresults.push_back(result_line());
@@ -2011,6 +2050,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
                 //=============================================================
                 //ATI less SSA less RDCA value - Case Detailed Information
                 xresults.push_back(result_line());
@@ -2022,6 +2062,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
 
                 //=============================================================
                 // Case Detailed Information - 2nd group of labels and values
@@ -2030,6 +2071,8 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                 //Multi-Case Allowance label - Case Detailed Information
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(mca_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "MCA",
                               RESULTS_SUBSUBHEADING,
@@ -2040,11 +2083,22 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)mca_tt);
+                           (LPTSTR)mca_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp - 5,
+                              15
+                              );
+                hp = hp + 15;
 
                 //=============================================================
                 //Multi-Case Cap Label - Case Detailed Information
                 xresults.push_back(result_line());
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(mccap_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "MC Cap",
                               RESULTS_SUBSUBHEADING,
@@ -2053,12 +2107,24 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_NOTAROW,
                               vpa);
-// TODO (Mike092015#1#): Add ToolTip for MCCAP
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)mccap_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
 
                 //=============================================================
                 //ATI - SSA - RDCA - MCA label - Case Detailed Information
                 xresults.push_back(result_line());
                 xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(less_mca_long);
                 AddResultLine(hwnd,xresults[xresults.size() -1],
                               "Less MCA",
                               RESULTS_SUBSUBHEADING,
@@ -2070,6 +2136,14 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
                            (LPTSTR)less_mca_tt);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1 - vpa,
+                              hp - 5,
+                              15
+                              );
+                hp = hp + 15;
 
                 //=============================================================
                 // Case Detailed Information - 2nd group values
@@ -2085,6 +2159,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
 
                 //=============================================================
                 //MC CAP value - Case Detailed Information
@@ -2097,6 +2172,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_NOT_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
 
                 //=============================================================
                 //ATI - SSA - RDCA - MCA value - Case Detailed Information
@@ -2109,6 +2185,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               RESULTS_FULL_LINE,
                               RESULTS_ISAROW,
                               vpa);
+                hp = hp + 15;
 
 
                 //=============================================================
