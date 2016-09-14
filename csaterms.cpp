@@ -532,6 +532,39 @@ char const* less_mca_tt(
                         );
 //=============================================================================
 // CSI tooltip text (Child Support Income)
+char const* csi_short(
+                      "CSI = Child Support Income."
+
+                      "\n\nThe respective parnt's income (ATI less deductions)"
+                      " subsequently used to calculate CS."
+                      );
+char const* csi_long(
+                     "CSI = Child Support Income."
+
+                     "\n\nCSI is the result of applying all relevant"
+                     " legislated financial support deductions to the Adjusted."
+                     " Taxable Income (ATI). That is the following amounts are"
+                     " subtracted from the ATI:-"
+
+                     "\n\tThe amount deemed necessary to support oneself, the "
+                     "Self Support Amount (SSA)."
+
+                     "\n\tThe amount needed to support biological or adopted"
+                     " children of the respective parent, the Relevant"
+                     " Dependant Children Amount (RDCA)."
+
+                     "\n\tThe amount needed to consider the support provided"
+                     " for other CS cases, the Multi-Case Allowance (MCA) or"
+                     " the Multi-Case Cap (MCCAP)."
+
+                     "\n\nEssentially CSI is the available income that will be used"
+                     " to determine the Cost of the CS Children and to also"
+                     " determine the percentage of a parent's contribution"
+                     " towards the cost of the CS children (The Income shared"
+                     " approach)."
+
+                     "\n\nNote Less MCA and CSI are the same amount."
+                     );
 char const* csi_tt(
                    "CSI = Child Support Income."
                    "\n\nCSI is the result of substracting the deductables from"
