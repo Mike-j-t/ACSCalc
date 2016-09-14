@@ -169,6 +169,36 @@ char const* adult_tt(
 
 //=============================================================================
 // Adjusted Taxable Income
+char const* ati_short(
+                      "ATI = Adjusted Taxable Income."
+                      "\nTaxable income plus other amounts used for determining"
+                      " Child Support."
+                      );
+char const* ati_long(
+                     "ATI = Adjusted Taxable Income."
+                     "\n\nThe Taxable Income plus, if relevant, the following :-"
+                     "\n\tPre-sax superannuantion contributions."
+                     "\n\tTotal net investment losses."
+                     "\n\tTarget foreign income"
+                     "\n\tReportable fringe benefits."
+                     "\n\tSpecified tax-free benefits or pensions."
+
+                     "\nAll the above should appear on the tax return."
+
+                     "\nThe ATI used is from the last relevant tax return."
+
+                     "\n\nA new tax return will result in a re-assessment;"
+                     " assuming that it is for the current taxation period."
+
+                     " Submitting late tax returns is beyond the scope of"
+                     " this calculator."
+                     "\n\nThe ATI is the basis of calculating Child Supoort."
+                     "\n\nThe CS Guide section 2.4.4.10 Adjusted Taxable"
+                     " Income may provide greater detail."
+                     "\nThe guide may be found at :-"
+                     "\thttp://guides.dss.gov.au/child-support-guide/2/4/4/10"
+                     "\nNote! this address can change."
+                     );
 char const* ati_tt(
                    "ATI = Adjsuted Taxable Income."
                    "\n\nThe ATI is your Taxable Income plus, if relevant,"
@@ -192,6 +222,30 @@ char const* ati_tt(
                    );
 //=============================================================================
 //Self-Support Amount
+char const* ssa_short(
+                      "SSA = Self Support Amount."
+                      "\n\nThe SSA is an amount that is deemed sufficient for"
+                      " an adult to support themself."
+                      );
+char const* ssa_long(
+                     "SSA = Self Support Amount."
+                     "\n\nThe SSA is an amount that is deemed sufficient for"
+                     " an adult to support themself. "
+
+                     "\n\nThe SSA is deducted from the ATI so the self-support"
+                     " aspect reduces the amount considred available for"
+                     " child support calculation."
+
+                     "\n\nThe SSA is determined according to an ABS provided"
+                     " figure (MTAWE) which is then annualised to form AMTAWE"
+                     " (Annualised Male Total Average Weekly Earnings)."
+                     " SSA is 1/3rd of AMTAWE and changes annually."
+
+                     "\n\nNote! AMTAWE is also used in the detrmination of the"
+                     " Cost of Children Tables."
+
+                     "\n\nNote if ATI - SSA is negative then it is changed to 0."
+                     );
 char const* ssa_tt(
                    "SSA = Self Support Amount."
 
@@ -234,9 +288,31 @@ char const* less_ssa_tt(
 
 //=============================================================================
 //RDCA tooltip text (Relevant Dependant Child Amount
+char const* rdca_short(
+                       "RDCA - Relevant Dependant Children Amount."
+                       "\n\nAn amount that considers the support of Relevant"
+                       " Dependant Children."
+                       );
+char const* rdca_long(
+                      "RDCA - Relevant Dependant Children Amount."
+                      "\n\nAn amount that considers the financial support "
+                      " needs of Relevant Dependant Children (RDC)."
+                      "\n\nAn RDC is a child (biological or adopted) of"
+                      " only one of parent's who is not a child of any "
+                      " of Child Support case."
+                      "\n\nThe RDCA is determined by applying the respective"
+                      " parent's ATI less SSA to the Cost of Children tables."
+                      "\n\nThe RDCA is then deducted from the respective"
+                      " parent's ATI less SSA (along with the Multi-Case"
+                      " Allowance (MCA)) to form that parent's Child Support"
+                      " Income (CSI)."
+                      "\n\nRDCA can often be $0."
+                      "\nIt could be that there are no RDC's. It could be"
+                      " that the "
+                      );
 char const* rdca_tt(
                      "RDCA = Relevant Dependant Children Amount."
-                     "\n\nA relevant dependant child is a biological of"
+                     "\n\nA relevant dependant child is a biological child of"
                      " one of the parent's (not both) who is not a child"
                      " of any other Child Support case."
 
@@ -370,6 +446,21 @@ char const* coc_tt(
 //=============================================================================
 // PIP tooltip text (Parent's Income Percentage)
 // TODO (Mike092015#1#): complete tooltip text for PIP
+char const* pip_short(
+                      "PIP = Parent's Income Percentage."
+                      );
+char const* pip_long(
+                     "PIP = Parent's Income Percentage."
+                     "\n\nThis is the percentage of the Combined Child Support"
+                     " Income (CCSI) that the respective parent's Child Support"
+                     " Income (CSI) forms. i.e. CSI / CCS1 * 100."
+                     "\n\nPIP less the Cost Pecentage, is used to determine the"
+                     " CS liability for the respective child."
+                     "\n\nNotes"
+                     "\n\tIf PIP less the Cost Percentage is negative then there"
+                     " is no CS liability."
+                     "\n\tOther rules may apply that alter the liability."
+                     );
 
 char const* pip_tt(
                    "PIP = Parent's Income Percentage."
