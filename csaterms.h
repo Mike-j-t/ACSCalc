@@ -19,37 +19,42 @@ extern char const* daily_tt;
 
 //Detailed Result (intermedaite values)
 // ATI - Adjusted Taxable Income
-extern char const* ati_tt;              // Adjusted taxable Income
+extern char const* ati_tt;
 extern char const* ati_short;
 extern char const* ati_long;
-extern char const* ssa_tt;              // Self-Support Amount
+// SSA - Self Support Amount
+extern char const* ssa_tt;
 extern char const* ssa_short;
 extern char const* ssa_long;
-extern char const* less_ssa_tt;         // ATI less SSA
+// Less SSA - ATI - SSA
+extern char const* less_ssa_tt;
 extern char const* less_ssa_short;
 extern char const* less_ssa_long;
-// RDCA
-extern char const* rdca_tt;              // Relevant Dependant Child Amount
+// RDCA - Relevant Dependant Children Amount
+extern char const* rdca_tt;
 extern char const* rdca_short;
 extern char const* rdca_long;
-// Less RDCA
-extern char const* less_rdca_tt;        // ATI less SSA less RDCA
+// Less RDCA - ATI - SSA - RDCA
+extern char const* less_rdca_tt;
 extern char const* less_rdca_short;
 extern char const* less_rdca_long;
-// MCA
-extern char const* mca_tt;              // Multi-Case Allowance
+// MCA - Multi-Case Allowance
+extern char const* mca_tt;
 extern char const* mca_short;
 extern char const* mca_long;
-// MCCAP
-extern char const* mccap_tt;            // Milti-Case Cap
+// MCCAP - Multi-Case Cap
+extern char const* mccap_tt;
 extern char const* mccap_short;
 extern char const* mccap_long;
-// Less MCA
-extern char const* less_mca_tt;         // Ati less SSA, RDCA and MCA (CSI)
+// Less MCA - ATI - SSA - RDCA - MCA
+extern char const* less_mca_tt;
 extern char const* less_mca_short;
 extern char const* less_mca_long;
+// CSI - Child Support Income (ATI-SSA-RDCA-MCA)
+extern char const* csi_tt;
+extern char const* csi_short;
+extern char const* csi_long;
 
-extern char const* csi_tt;              // Child Support Income
 extern char const* ccsi_tt;             // Combined Child Support Income
 extern char const* coc_tt;              // Cost of Children
 //PIP
