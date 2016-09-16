@@ -54,13 +54,22 @@ extern char const* less_mca_long;
 extern char const* csi_tt;
 extern char const* csi_short;
 extern char const* csi_long;
-
+// CCSI - Combined Child Support Income
 extern char const* ccsi_tt;             // Combined Child Support Income
+extern char const* ccsi_short;
+extern char const* ccsi_long;
+
+// COC - Cost of Children
 extern char const* coc_tt;              // Cost of Children
-//PIP
+extern char const* coc_short;
+extern char const* coc_long;
+//PIP - Parent's Income Percentage
 extern char const* pip_tt;              // Parent's Income Percentage
 extern char const* pip_short;
 extern char const* pip_long;
+// Liability
 extern char const* liability_tt;        // CS Liability (annual rate of CS)
+extern char const* liability_short;
+extern char const* liability_long;
 
 #endif // CSATERMS_H_INCLUDED
