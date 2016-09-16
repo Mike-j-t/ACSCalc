@@ -565,6 +565,7 @@ char const* csi_long(
 
                      "\n\nNote Less MCA and CSI are the same amount."
                      );
+
 char const* csi_tt(
                    "CSI = Child Support Income."
                    "\n\nCSI is the result of substracting the deductables from"
@@ -572,13 +573,27 @@ char const* csi_tt(
                    "\n\n i.e. CSI = ATI - SSA - RDCA - MCA."
                    "\n\nWhen both parent's CSI's are determined they are added"
                    " to form the Combined Child Support Income."
-                   "\n\nA Parent's Income Percentage (PIP) is also derived from"
-                   " the CSI, PIP is the percentage of the CSI as part of the"
-                   " CCSI."
+                   "\n\nA Parent's Income Percentage (PIP) is also derived"
+                   " from the CSI, PIP is the percentage of the CSI as part"
+                   " of the CCSI."
                    );
 //=============================================================================
-// CCSI tooltip text (Combined Child Support Income)
-// TODO (Mike092015#1#): Complte tooltip text for CCSI
+// CCSI Tooltip text - Combined Child Support Income
+char const* ccsi_short(
+                     "CCSI = Combined Child Support Income."
+
+                     "\n\nThe sum of both parent's Child Support Incomes."
+                     );
+char const* ccsi_long(
+                      "CCSI = Combined Child Support Income."
+
+                      "\n\nThe sum of both parent's Child Support Income."
+
+                      "\n\nThis value is used in determining the Cost of"
+                      " the Child Support Children in the case hence the"
+                      " Income Shared Approach as both parent's incomes"
+                      " are used."
+                      );
 
 char const* ccsi_tt(
                    "CCSI = Combined Child Support Income."
@@ -588,9 +603,37 @@ char const* ccsi_tt(
 //=============================================================================
 // COC tooltip text (Cost f Children)
 // TODO (Mike092015#1#): Complete tooltip text for CCSI
+char const* coc_short(
+                      "COC = Cost of Children"
+
+                      "\n\nThe cost of the children as determined by applying"
+                      " the CCSI to the cost of children tables."
+                      );
+char const* coc_long(
+                     "COC = Cost of Children"
+
+                     "\n\nThe Cost of the CS children as determined by"
+                     " applying the Combined Child Support Income (CCSI)"
+                     " to the Cost of Children tables."
+
+                     "\n\nIt should be noted that subsequent calculations"
+                     " are performed on a child by child basis and that"
+                     " this amount is divided equally between the children"
+                     " when those calculations are performed."
+
+                     "\n\nIt should also be noted that the Child Cost"
+                     " (found later in the report) may not sum to this amount."
+                     " The reason is that the both the level of care and the "
+                     " parent's share of the combined Child Support Income are"
+                     " the factored in when determening the cost of a child."
+                     "\n\nOnly if a Parent has no care (less than 14% care)"
+                     " and if the other parent effectively has no income"
+                     " (CSI is $0) then will the COC match the total of the"
+                     " sum of the cost for each individual child."
+                     );
 
 char const* coc_tt(
-                   "COC = Cost ofChildren."
+                   "COC = Cost of Children."
                    "The Cost of Children is determine by applying the Combined"
                    " Child Support Income (CCSI) to the Cost of Children tables."
                    "\n\nThe Cost of Children tables has 8 sets of figures, these"
@@ -624,7 +667,6 @@ char const* coc_tt(
                    );
 //=============================================================================
 // PIP tooltip text (Parent's Income Percentage)
-// TODO (Mike092015#1#): complete tooltip text for PIP
 char const* pip_short(
                       "PIP = Parent's Income Percentage."
                       );
@@ -650,6 +692,21 @@ char const* pip_tt(
 // Liability tooltip text (CS liability/Annual CS Amount)
 // TODO (Mike092015#1#): Complete tooltip text for Liability
 
-char const* liability_tt(
-                   ""
+char const* liability_short(
+                   "Liability = The amount that this parent is liable for."
+                   "\n\nNote! This is before offsetting liabilities and"
+                   " may not reflect the actual CS the parent has to pay."
                    );
+char const* liability_long(
+                           "Liability = The amount that this parent is"
+                           " liable for."
+
+                           "\n\nThis is the amount that has been calculated"
+                           " that the parent owes but not considering"
+                           " offsetting of liabilities."
+                           "\n\nThat is, both parent's could have liabilities"
+                           " and if so the lower liability would be subtracted"
+                           " from the higher liability."
+                           "\n\nAn example would be if each parent had the"
+                           " primary care of a child."
+                           );
