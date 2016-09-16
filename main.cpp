@@ -2135,7 +2135,7 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                               vpa);
                 AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
                            xresults_tt[xresults_tt.size() -1],
-                           (LPTSTR)less_mca_tt);
+                           (LPTSTR)less_mca_short);
                 AddItemButton(hwnd,
                               xresults_hb[xresults_hb.size() -1],
                               (std::string)"?",
@@ -2191,32 +2191,161 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                 //=============================================================
                 // Case Detailed Information - 3rd group of labels and values
                 hp = 165;       // Indent past the adult column
+
                 //=============================================================
                 // CSI - Case detailed Information
-// TODO (Mike092015#1#): Addtooltips for CSI, CCSI, COC, PIP and Liability
+                xresults.push_back(result_line());
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(csi_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "CSI",RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPSTR)csi_short);
+               AddItemButton(hwnd,
+                             xresults_hb[xresults_hb.size() -1],
+                             (std::string)"?",
+                             vp + 1,
+                             hp - 5,
+                             15
+                             );
+                hp = hp + 15;
+
+                //=============================================================
+                // CCSI - Combined Child Support Income detailed Information
+                xresults.push_back(result_line());
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(ccsi_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "CCSI",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)ccsi_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
 
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"CSI",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(coc_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "COC",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)coc_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
 
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"CCSI",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(pip_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "PIP",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)pip_short
+                           );
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"COC",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
-                xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"PIP",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
-                xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Liability",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(liability_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Liability",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)liability_short
+                           );
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1 - vpa,
+                              hp - 5,
+                              15
+                              );
+                hp = hp + 15;
 
 
                 hp = 165;
                 xresults.push_back(result_line());
                 AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacaseCSI(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                hp = hp + 15;
                 xresults.push_back(result_line());
                 AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetCCSI()),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                hp = hp + 15;
                 xresults.push_back(result_line());
                 AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetCOC()),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                hp = hp + 15;
                 xresults.push_back(result_line());
                 AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacasePIP(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                hp = hp + 15;
                 xresults.push_back(result_line());
                 AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacasePays(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_FULL_LINE,RESULTS_ISAROW,vpa);
 
