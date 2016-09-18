@@ -71,5 +71,27 @@ extern char const* pip_long;
 extern char const* liability_tt;        // CS Liability (annual rate of CS)
 extern char const* liability_short;
 extern char const* liability_long;
+// Child Child's Name
+extern char const* child_short;
+extern char const* child_long;
+// Nights of Care
+extern char const* ncare_short;
+extern char const* ncare_long;
+// Percentage of Care
+extern char const* pcare_short;
+extern char const* pcare_long;
+// Cost percetnage
+extern char const* costp_short;
+extern char const* costp_long;
+// Actual Parent's CS Percentage
+extern char const* apcsp_short;
+extern char const* apcsp_long;
+//Effective Parent's CS Percentage
+extern char const* epcsp_short;
+extern char const* epcsp_long;
+// Cost of this child
+extern char const* ctc_short;
+extern char const* ctc_long;
+
 
 #endif // CSATERMS_H_INCLUDED

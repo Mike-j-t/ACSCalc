@@ -678,8 +678,8 @@ char const* pip_long(
                      "\n\nPIP less the Cost Pecentage, is used to determine the"
                      " CS liability for the respective child."
                      "\n\nNotes"
-                     "\n\tIf PIP less the Cost Percentage is negative then there"
-                     " is no CS liability."
+                     "\n\tIf PIP less the Cost Percentage is negative"
+                     "then there is no CS liability."
                      "\n\tOther rules may apply that alter the liability."
                      );
 
@@ -693,9 +693,11 @@ char const* pip_tt(
 // TODO (Mike092015#1#): Complete tooltip text for Liability
 
 char const* liability_short(
-                   "Liability = The amount that this parent is liable for."
-                   "\n\nNote! This is before offsetting liabilities and"
-                   " may not reflect the actual CS the parent has to pay."
+                            "Liability = The amount that this parent is liable"
+                            " for."
+                            "\n\nNote! This is before offsetting liabilities"
+                            "and may not reflect the actual CS the parent has"
+                            " to pay."
                    );
 char const* liability_long(
                            "Liability = The amount that this parent is"
@@ -710,3 +712,79 @@ char const* liability_long(
                            "\n\nAn example would be if each parent had the"
                            " primary care of a child."
                            );
+//=============================================================================
+// Child (Child's Name)
+char const* child_short(
+                        "The child's Name (if input, otherwise as generated)"
+                        );
+char const* child_long(
+                       "The child's Name (if input, otherwise as generated)"
+                       );
+//=============================================================================
+// Nights Care
+char const* ncare_short(
+                        "Care = The number of nights care that this parent has."
+                        );
+char const* ncare_long(
+                       "Care = The number of nights care that this parent has."
+
+                       "\n\nIt should be noted that the legislation allows for"
+                       " calculation based upon actual care. However, when this"
+                       " can be applied is undefined and thus at the discretion"
+                       " of the registrar (CSA)."
+
+                       "\n\nIf an actual care percentage is to be used, then"
+                       " currently, the respective number of nights would need"
+                       " to be input."
+                       );
+//=============================================================================
+// Care% - Care Percent
+char const* pcare_short(
+                        "Care% = Care Percentage."
+
+                        "\n\nThe amount of care the parent has as a percentage."
+                        );
+char const* pcare_long(
+                       "Care% = Care Percentage."
+
+                        "\n\nThe amount of care the parent has as a percentage."
+                        "\n\nThis is calculate as number of nights"
+                        " divided by 365 multiplied by 100."
+                        " If the result is less than 50 then it is rounded down"
+                        " otherwise (i.e. if 50 or more) it is rounded up."
+                       );
+//=============================================================================
+// Cost% - Parent's Cost percentage
+char const* costp_short(
+                        "Cost% = Parent's Cost Percentage."
+
+                        "\n\nThe percentage of the child's costs according to"
+                        " the cost percentage tables."
+                        );
+char const* costp_long(
+                       "Cost% = Parent's Cost Percentage."
+
+                       "\n\nThe percentage of the child's costs according to"
+                        " the cost percentage tables as per:-"
+
+                       "\n\t0-13% results in a cost percentage of 0%."
+                       "\n\t13-34% results in a cost percentage of 24%."
+                       "\n\t35-37% results in a cost percentage of 25% +"
+                       "\n\t   2% for every 1% over 35%."
+                       "\n\t48-52% results in a cost percentage of 50%."
+                       "\n\t53-65% results in a cost percentage of 51% +"
+                       "\n\t   2% for every 1% over 53%."
+                       "\n\t66-86% results in a cost percentage of 76%."
+                       "\n\t87-100% results in a cost percentage of 100%."
+
+                       "\n\nThe cost perecentage (Cost%) is then used as the"
+                       " percentage of the cost of the child that the parent"
+                       " pays."
+
+                       "\n\nNote that a parent's income percentage (PIP) is also"
+                       " factored in to establish the CS liability."
+                       " That is PIP - Cost% (if negative then 0) is the"
+                       " percentage of the cost of the child that is the CS "
+                       " liability for the child."
+                       "\nOther factors may affect the final liability."
+                       );
