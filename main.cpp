@@ -2335,39 +2335,277 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
 
                 hp = 165;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacaseCSI(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              NumberToString(fullcases[i].GetfacaseCSI(j)),
+                              0,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_ISAROW,
+                              vpa);
+
                 hp = hp + 15;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetCCSI()),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              NumberToString(fullcases[i].GetCCSI()),
+                              0,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_ISAROW,
+                              vpa
+                              );
+
                 hp = hp + 15;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetCOC()),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              NumberToString(fullcases[i].GetCOC()),
+                              0,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_ISAROW,
+                              vpa
+                              );
+
                 hp = hp + 15;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacasePIP(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_ISAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              NumberToString(fullcases[i].GetfacasePIP(j)),
+                              0,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_ISAROW,
+                              vpa
+                              );
+
                 hp = hp + 15;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].GetfacasePays(j)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_FULL_LINE,RESULTS_ISAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              NumberToString(fullcases[i].GetfacasePays(j)),
+                              0,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_FULL_LINE,
+                              RESULTS_ISAROW,
+                              vpa
+                              );
 
 
                 hp = 80;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Per-Child values",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_HPHEADINGLEN-hp,RESULTS_FULL_LINE,RESULTS_NOTAROW,vpa);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Per-Child values",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_HPHEADINGLEN-hp,
+                              RESULTS_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+
                 hp = 90;
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Child",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_NAMECTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(child_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Child",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_NAMECTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)child_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp - 5,
+                              15
+                              );
+                hp = hp +15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Care",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(ncare_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Care",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)ncare_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Care%",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(pcare_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Care%",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size()-1 ],
+                           (LPTSTR)pcare_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp - 5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Cost%",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(costp_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Cost%",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)costp_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Act PCS%",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(apcsp_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Act PCS%",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)apcsp_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Eff PCS%",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(epcsp_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Eff PCS%",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_NOT_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)epcsp_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
+
                 xresults.push_back(result_line());
-                AddResultLine(hwnd,xresults[xresults.size() -1],"Child Cost",RESULTS_SUBSUBHEADING,vp,hp,ACSC_STD_CTLLEN,RESULTS_FULL_LINE,RESULTS_NOTAROW,vpa);
+                xresults_tt.push_back((HWND)NULL);
+                xresults_hb.push_back((HWND)NULL);
+                xresults_hbtxt.push_back(ctc_long);
+                AddResultLine(hwnd,
+                              xresults[xresults.size() -1],
+                              "Child Cost",
+                              RESULTS_SUBSUBHEADING,
+                              vp,
+                              hp,
+                              ACSC_STD_CTLLEN,
+                              RESULTS_FULL_LINE,
+                              RESULTS_NOTAROW,
+                              vpa
+                              );
+                AddToolTip(xresults[xresults.size() -1].result_lineGetHWND(),
+                           xresults_tt[xresults_tt.size() -1],
+                           (LPTSTR)ctc_short);
+                AddItemButton(hwnd,
+                              xresults_hb[xresults_hb.size() -1],
+                              (std::string)"?",
+                              vp + 1 - vpa,
+                              hp -5,
+                              15
+                              );
+                hp = hp + 15;
 
                 for (int k = 0; k < fullcases[i].facase[j].GetRltSize(); k++ )
                 {
@@ -2376,24 +2614,31 @@ void BuildResultsSection( HWND hwnd, int &vp, int vpa)
                     //Child's name
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],fullcases[i].facase[j].GetRltChildsName(k),0,vp,hp,ACSC_STD_NAMECTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //Level of Care
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltCare(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //Care Percentage
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltCarePercentage(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //CS Cost Percentage
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltCostPercentage(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //Parents Actual CS Percentage
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltPCSPC(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //Parents effective CS Pecentage (i.e if Actual is negative then 0)
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltEffPCSPC(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_NOT_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
                     //Cost of This Child
                     xresults.push_back(result_line());
                     AddResultLine(hwnd,xresults[xresults.size() -1],NumberToString(fullcases[i].facase[j].GetRltCostOfTheChild(k)),0,vp,hp,ACSC_STD_CTLLEN,RESULTS_FULL_LINE,(RESULTS_ISAROW | ((k % 2) * RESULTS_EVENROW)),vpa);
+                    hp = hp + 15;
 
                 }
             }
