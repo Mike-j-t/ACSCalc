@@ -788,3 +788,63 @@ char const* costp_long(
                        " liability for the child."
                        "\nOther factors may affect the final liability."
                        );
+//=============================================================================
+// Act PCS% - Actual Parent's Child Support Percentage
+char const* apcsp_short(
+                        "Act PC% = Actual Parent's Child Support Percentage."
+
+                        "\n\nParent's Income Percentage (PIP) less the Cost"
+                        " percentage (Cost%) for this child."
+                        );
+char const* apcsp_long(
+                      "Act PC% = Actual Parent's Child Support Percentage."
+
+                      "\n\nParent's Income Percentage (PIP) less the Cost"
+                      " percentage (Cost%) for this child."
+
+                      "\n\nThis is then converted to the Effective Child"
+                      " Support Percentage (Eff PC%), which is then used"
+                      ", as a percentage of the Cost of this child to "
+                      " result in the liability for this child."
+                      );
+//=============================================================================
+// Eff PC%n - Effective Parent's Child Support Percentage
+char const* epcsp_short(
+                        "Eff PC% = Effective Child Support Percentage."
+
+                        "\n\nAct PC% converted if negative to 0."
+                        );
+char const* epcsp_long(
+                       "Eff PC% = Effective Child Support Percentage."
+                       "\n\nThe Actual Child Support Percentage (Act PC%)"
+                       " converted to 0% if negative."
+
+                       "\n\nThis is used to determine the liability for this"
+                       "child. That is, it is the percentage of the Cost of"
+                       " this child. Thus factoring the the level of care"
+                       " (Cost%) and the respective parents portion of the"
+                       " of the Combined Child Support Income."
+
+                       "\n\nMore specifically the CS liability is the Effective"
+                       " Child Support Percentage of the Cost of this Child."
+                       "The Effective Child Support Percentage being the"
+                       " Parent's Income Percentage less the Parent's "
+                       " Cost Percentage."
+                       );
+//=============================================================================
+// Child Cost - Cost of this child
+char const* ctc_short(
+                      "Child Cost = The CS liability for this child."
+                      );
+char const* ctc_long(
+                     "Child Cost = The CS liability for this child."
+
+                     "\n\nThis is the Cost of this Child "
+                     "(Cost of Child / number of Children) then reduced by the"
+                     " effective Child Support Percentage."
+
+                     "\nThe effective Child Support Percentage being the"
+                     " Parent's Income Percentage (percentage of the"
+                     " combined child supprt incomes) less the Parent's"
+                     " Cost Perctage (adjusted level of care)."
+                     );
